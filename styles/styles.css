@@ -8,6 +8,7 @@
   --button-text-color: #212121;
 }
 
+/* основные стили */
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -19,40 +20,45 @@ body {
 
 .header {
   border-bottom: 1px solid #ececec;
-  padding-top: 25px;
-  padding-bottom: 25px;
 }
 
+/* контейнер */
 .container {
   width: 1200px;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
 
+/* флексбокс */
 .flex-box {
   display: flex;
   align-items: center;
 }
 
+/* флексбокс для навигации */
 .main-nav {
   display: flex;
   align-items: center;
 }
 
+/* Оформление списков навигации и контактов */
+
 .nav-list {
   display: flex;
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
 /* лого первая часть */
 .logo {
   margin-right: 95px;
-
+  padding-top: 25px;
+  padding-bottom: 25px;
   color: var(--logo-color);
   font-family: "Raleway", sans-serif;
   font-weight: 700;
@@ -60,16 +66,21 @@ body {
   line-height: 1.19;
   text-decoration: none;
 }
+
+/* Лого вторая часть */
 .logo-part {
   --logo-color: #000000;
   color: var(--logo-color);
 }
 
+/* отступ между ссылками навигцации */
 .nav-list .list-item + .list-item {
   margin-left: 50px;
 }
 
+/* Ссылки навигации */
 .nav-link {
+  position: relative;
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -78,34 +89,50 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.current.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #2196f3;
+  border-radius: 2px;
+}
+
+/* Подсветка текущей страницы и наведения */
 .current,
 .nav-link:hover,
 .nav-link:focus {
   color: var(--focus-color);
 }
 
+/* оформление контактов */
 .contacts {
   display: flex;
   margin: 0;
   padding: 0;
   margin-left: auto;
-
   list-style: none;
 }
 
 .contacts-link {
+  display: inline-flex;
+  align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
-
   color: var(--text-color);
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* отступ между контактами */
 .contacts-item + .contacts-item {
   margin-left: 50px;
 }
@@ -114,32 +141,38 @@ body {
 .contacts-link:focus {
   color: var(--focus-color);
 }
-.contacts .contacts-icon {
+
+.contacts-icon {
   margin-right: 10px;
   fill: currentColor;
 }
 
+/* Стилизация основы */
+
+/* Секция герой */
 .hero {
   max-width: 1600px;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  height: 600px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #2f303a;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  background-color: #c4c4c4;
   background-image: linear-gradient(
       to right,
       rgba(47, 48, 58, 0.4),
       rgba(47, 48, 58, 0.4)
     ),
     url(../images/hero.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+/* Оформления заголовка */
 .hero-title {
   margin: 0;
   margin-bottom: 30px;
-
   --title-color: #ffffff;
   color: var(--title-color);
   font-weight: 900;
@@ -150,6 +183,7 @@ body {
   text-transform: uppercase;
 }
 
+/* кнопка герой */
 .hero-button {
   display: block;
   padding-top: 10px;
@@ -158,18 +192,19 @@ body {
   padding-left: 32px;
   margin-right: auto;
   margin-left: auto;
-
   border: none;
   border-radius: 4px;
-
   --button-text-color: #ffffff;
   color: var(--button-text-color);
   background-color: var(--focus-color);
   font-size: 16px;
-  font-weight: 700; /*????*/
+  font-weight: 700;
   line-height: 1.8;
   letter-spacing: 0.06em;
   cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -185,6 +220,10 @@ body {
   padding-bottom: 94px;
 }
 
+/* Секция преимущества */
+.benefits {
+}
+
 .benefits .icon-wrap {
   display: flex;
   height: 120px;
@@ -198,6 +237,7 @@ body {
 .benefits-icon {
 }
 
+/* Оформление заголовка преимуществ */
 .benefits .title {
   display: none;
   margin: 0;
@@ -206,22 +246,13 @@ body {
   line-height: 1.16;
   text-align: center;
 }
+
+/* оформление списка преимуществ */
 .benefits .list {
   display: flex;
-  list-style: none;
   margin: 0;
   padding: 0;
-  justify-content: center;
-}
-
-.benefits .title {
-  display: none;
-  margin: 0;
-
-  color: var(--title-color);
-  font-size: 36px;
-  line-height: 1.16;
-  text-align: center;
+  list-style: none;
 }
 
 .benefits .list-item {
@@ -232,10 +263,10 @@ body {
   margin-left: 30px;
 }
 
+/* оформление преимущества */
 .benefits .list-title {
   margin: 0;
   margin-bottom: 10px;
-
   color: var(--title-color);
   font-style: normal;
   font-size: 14px;
@@ -246,6 +277,8 @@ body {
 .benefits .description {
   margin: 0;
 }
+
+/* секция услуги */
 .services {
   padding-top: 0;
 }
@@ -253,17 +286,17 @@ body {
 .services .title {
   margin: 0;
   margin-bottom: 50px;
-
   color: var(--title-color);
   font-size: 36px;
   line-height: 1.16;
   text-align: center;
 }
+
+/* оформление списка услуг */
 .services .list {
   display: flex;
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
@@ -274,6 +307,30 @@ body {
 .services .no-gap {
   display: block;
 }
+
+.services .link {
+  position: relative;
+  text-decoration: none;
+}
+
+.services .services-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  background-color: rgba(47, 48, 58, 0.8);
+  font-size: inherit;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* секция команда */
 .team.section {
   --background-color: #f5f4fa;
   background-color: var(--background-color);
@@ -282,30 +339,27 @@ body {
 .team .title {
   margin: 0;
   margin-bottom: 50px;
-
   color: var(--title-color);
   font-size: 36px;
   line-height: 1.16;
   text-align: center;
 }
+
+/* оформление списка команды */
 .team .list {
   display: flex;
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
 .team .item {
+  padding-bottom: 30px;
   --background-color: #ffffff;
   background-color: var(--background-color);
-
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
-}
-.team .title-text {
-  padding: 30px 0;
 }
 
 .team .item + .item {
@@ -314,13 +368,27 @@ body {
 
 .team .no-gap {
   display: block;
+  margin-bottom: 30px;
 }
+
+/* офрормление сотрудника */
 .team-member {
   margin: 0;
   margin-bottom: 10px;
 
   color: var(--title-color);
   font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18;
+  text-align: center;
+}
+
+/* оформление должности */
+.position {
+  margin: 0;
+  margin-bottom: 16px;
+
+  color: var(--text-color);
   font-size: 16px;
   line-height: 1.18;
   text-align: center;
@@ -348,6 +416,8 @@ body {
   background-color: #ffffff;
   border-radius: 50%;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team .social-link:focus,
@@ -360,29 +430,23 @@ body {
   fill: currentColor;
 }
 
-.client,
-.title {
+.clients .title {
   margin: 0;
   margin-bottom: 50px;
-
   color: var(--title-color);
   font-size: 36px;
   line-height: 1.16;
   text-align: center;
 }
-.position {
-  margin-bottom: 16px;
-  color: var(--text-color);
-  font-size: 16px;
-  line-height: 1.18;
-  text-align: center;
-}
+
+/* оформление списка клиентов */
 .clients-list {
   display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
 .clients-list .link {
   display: inline-flex;
   width: 170px;
@@ -393,6 +457,8 @@ body {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list .item + .item {
@@ -412,27 +478,28 @@ body {
 .projects .title {
   display: none;
   margin: 0;
-
   color: var(--title-color);
   font-size: 36px;
   line-height: 1.16;
   text-align: center;
 }
+
+/* оформление списка фильтра */
 .filter {
   display: flex;
   justify-content: center;
   margin: 0;
   padding: 0;
   margin-bottom: 50px;
-
   list-style: none;
 }
+
+/* оформление кнопок фильтра */
 .filter-button {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-right: 22px;
   padding-left: 22px;
-
   color: var(--button-text-color);
   font-family: "Roboto";
   font-weight: 500;
@@ -440,9 +507,11 @@ body {
   line-height: 1.62;
   letter-spacing: 0.03em;
   cursor: pointer;
-
   border: none;
   border-radius: 4px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter .item:not(:last-child) {
@@ -454,13 +523,15 @@ body {
   --text-color: #ffffff;
   color: var(--text-color);
   background-color: var(--focus-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
+
 .projects-list {
   display: flex;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
@@ -468,7 +539,9 @@ body {
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .projects-list .item:hover,
 .projects-list .item:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
@@ -480,15 +553,44 @@ body {
 }
 
 .projects-list .item:nth-child(n + 7) {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .projects-list .no-gap {
   display: block;
 }
+
+/* оформление карточки проекта */
 .projects-link {
   text-decoration: none;
-  display: block;
+}
+
+.thumb-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-list .details {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding-top: 63px;
+  padding-bottom: 63px;
+  padding-right: 24px;
+  padding-left: 24px;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  background-color: rgba(33, 150, 243, 0.9);
+  color: #ffffff;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-list .item:hover .details,
+.projects-link:focus .details {
+  transform: translateY(0%);
 }
 
 .projects-list .desc {
@@ -496,7 +598,6 @@ body {
   padding-bottom: 20px;
   padding-right: 24px;
   padding-left: 24px;
-
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
@@ -504,17 +605,19 @@ body {
 .projects-name {
   margin: 0;
   margin-bottom: 4px;
-
   color: var(--title-color);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .projects-type {
   color: var(--text-color);
   font-size: 16px;
   line-height: 1.88;
 }
+
 .projects-name:active,
 .projects-name:hover,
 .projects-name:focus,
@@ -527,7 +630,6 @@ body {
 .footer {
   padding-top: 60px;
   padding-bottom: 60px;
-
   --background-color: #2f303a;
   background-color: var(--background-color);
 }
@@ -538,7 +640,7 @@ body {
 }
 
 .footer .logo {
-  display: inline-block; /*!!!!!!*/
+  display: inline-block;
   margin: 0;
   margin-right: 156px;
 
@@ -553,10 +655,8 @@ body {
 
 .physical-address {
   display: inline-block;
-
   margin: 0;
   margin-bottom: 9px;
-
   --text-color: #ffffff;
   color: var(--text-color);
   font-style: normal;
@@ -564,10 +664,10 @@ body {
 
 .web-address {
   display: inline-block;
-  /*!!!!!!*/
   color: rgba(255, 255, 255, 0.6);
   font-style: normal;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .web-address:not(:last-child) {
@@ -608,6 +708,8 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .subscribe .social-link:focus,
@@ -618,4 +720,56 @@ body {
 
 .subscribe .social-icon {
   fill: #ffffff;
+}
+
+.back-drop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-drop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.back-drop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 528px;
+  height: 581px;
+  padding: 15px;
+
+  transform: translate(-50%, -50%) scale(1) rotate(5turn);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  background-color: #ffffff;
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal .close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transform: translate(-8px, 8px);
 }
